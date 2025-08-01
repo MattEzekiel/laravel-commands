@@ -8,6 +8,8 @@
 
 En Laravel 12, los comandos de Artisan se agrupan por funcionalidades. Acá te dejo un listado general (no exhaustivo pero bastante completo) de los comandos más comunes. Podés correr `php artisan list` para ver todos los disponibles en tu proyecto, ya que algunos dependen de los *packages* instalados.
 
+## 🤖 **Comandos**
+
 ---
 
 ### 🔧 **Migrations y Seeds**
@@ -132,4 +134,41 @@ php artisan down         # modo mantenimiento
 php artisan up           # salir de mantenimiento
 php artisan env          # muestra el entorno actual
 php artisan about        # muestra info del sistema
+```
+
+## 🚩 **Commands with Flags**
+
+### ⚙️ **Modelos (`make:model`)**
+
+```bash
+php artisan make:model NombreModelo                   # Crea un modelo básico.
+php artisan make:model NombreModelo -m                # Crea modelo y su migration.
+php artisan make:model NombreModelo -c                # Crea modelo y un controlador básico.
+php artisan make:model NombreModelo -r -c             # Crea modelo y un controlador resource (CRUD).
+php artisan make:model NombreModelo -f                # Crea modelo y factory.
+php artisan make:model NombreModelo -s                # Crea modelo y seeder.
+php artisan make:model NombreModelo --all             # Crea modelo, migration, factory, seeder, controlador resource todo junto.
+```
+
+### 📄 **Requests (make:request)**
+
+```bash
+php artisan make:request NombreRequest                 # Crea una clase para validar datos de requests HTTP.
+```
+
+### 📁 **Controladores (make:controller)**
+
+```bash
+php artisan make:controller NombreController                            # Crea un controlador básico sin métodos.
+php artisan make:controller NombreController --resource                 # Crea controlador con métodos CRUD: index, create, store, show, edit, update, destroy.
+php artisan make:controller NombreController --api                      # Crea controlador con métodos API (sin create ni edit).
+php artisan make:controller NombreController --invokable                # Crea controlador con un único método __invoke().
+php artisan make:controller NombreController --resource --model=Modelo  # Controlador CRUD vinculado a un modelo.
+```
+
+### 📦 **Recursos API (make:resource)**
+
+```bash
+php artisan make:resource NombreResource                # Crea un recurso para transformar un modelo.
+php artisan make:resource NombreResource --collection   # Crea un recurso para transformar una colección.
 ```
